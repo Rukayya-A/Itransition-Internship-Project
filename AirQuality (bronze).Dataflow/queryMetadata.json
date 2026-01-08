@@ -1,0 +1,88 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Air Quality",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "OpenAQ_APIKey": {
+      "queryId": "0e1cec2e-8b20-4d6c-80fa-6c84910c6746",
+      "queryName": "OpenAQ_APIKey",
+      "loadEnabled": false
+    },
+    "OpenAQ_locations": {
+      "queryId": "36065b12-8c68-4ec8-8907-6cb6df1edb21",
+      "queryName": "OpenAQ_locations",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "024ef1a1-7312-4daa-8c2f-54665667ef89",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "OpenAQ_sensors": {
+      "queryId": "d776f667-bef9-4ab1-9a52-d5ec73198195",
+      "queryName": "OpenAQ_sensors",
+      "loadEnabled": false
+    },
+    "OpenAQ_measurements": {
+      "queryId": "22f5992f-b281-42e3-b1b5-cdcc169e10f8",
+      "queryName": "OpenAQ_measurements",
+      "loadEnabled": false
+    },
+    "OpenAQ_measurements_DataDestination": {
+      "queryId": "b7fb67aa-4099-4653-b5ed-3570e7805302",
+      "queryName": "OpenAQ_measurements_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "OpenAQ_measurements_DataDestinationTransform": {
+      "queryId": "c4ffb395-fe35-4f38-9fdd-845d9a90973f",
+      "queryName": "OpenAQ_measurements_DataDestinationTransform",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "OpenAQ_sensors_DataDestination": {
+      "queryId": "fb05ee66-1110-48dc-94e6-ec2d70e2329c",
+      "queryName": "OpenAQ_sensors_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "OpenAQ_sensors_DataDestinationTransform": {
+      "queryId": "a8f18fb7-0228-4fb1-9015-a72fd9f87ffa",
+      "queryName": "OpenAQ_sensors_DataDestinationTransform",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "OpenAQ_locations_DataDestination": {
+      "queryId": "06212ec6-d7d7-4328-9a0d-8d1b6b81878d",
+      "queryName": "OpenAQ_locations_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "OpenAQ_locations_DataDestinationTransform": {
+      "queryId": "e5353dc1-1aca-41cb-9ad6-fef1dd2937a2",
+      "queryName": "OpenAQ_locations_DataDestinationTransform",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://api.openaq.org/v3/locations",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"60e9d4da-7f27-4acf-9141-df567fbd4f64\",\"DatasourceId\":\"1238e9fb-3206-4189-bf43-5c9b08980391\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"60e9d4da-7f27-4acf-9141-df567fbd4f64\",\"DatasourceId\":\"1fee9ad5-7c50-4da3-a93a-d488361be756\"}"
+    },
+    {
+      "path": "https://api.openaq.org/v3",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"60e9d4da-7f27-4acf-9141-df567fbd4f64\",\"DatasourceId\":\"07f3332f-dba2-455a-ae24-4b0ec9d5197c\"}"
+    }
+  ]
+}

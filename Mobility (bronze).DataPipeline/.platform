@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Mobility (bronze)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c05e94bc-ef50-a53a-4ff0-3ba4a9db0e8e"
+  }
+}

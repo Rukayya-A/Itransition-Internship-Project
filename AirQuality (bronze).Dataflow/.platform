@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "AirQuality (bronze)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9a9b75f0-b6b3-8ea8-4ff6-839fd4c703b0"
+  }
+}

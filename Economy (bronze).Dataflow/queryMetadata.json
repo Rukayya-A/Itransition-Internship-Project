@@ -1,0 +1,60 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "WB_GDP",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "WB_GDP": {
+      "queryId": "3cbd164a-ad57-4827-a117-6f2a87200248",
+      "queryName": "WB_GDP",
+      "loadEnabled": false
+    },
+    "ECB_FX": {
+      "queryId": "83f43b76-2e80-49c0-a8ca-969a831dd8d6",
+      "queryName": "ECB_FX",
+      "loadEnabled": false
+    },
+    "ECB_FX_DataDestination": {
+      "queryId": "e9a890b5-7adc-428d-a771-bd615211ea4a",
+      "queryName": "ECB_FX_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "ECB_FX_DataDestinationTransform": {
+      "queryId": "9f0b3e27-a385-41d2-abc2-989cd130c06b",
+      "queryName": "ECB_FX_DataDestinationTransform",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "WB_GDP_DataDestination": {
+      "queryId": "ef82a92d-48a4-4f8c-b574-9651e8478d04",
+      "queryName": "WB_GDP_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "WB_GDP_DataDestinationTransform": {
+      "queryId": "60ca97ac-8116-4941-b9eb-e5e7f27fb67a",
+      "queryName": "WB_GDP_DataDestinationTransform",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://api.worldbank.org/v2/country/USA/indicator/NY.GDP.MKTP.CD?format=json",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"60e9d4da-7f27-4acf-9141-df567fbd4f64\",\"DatasourceId\":\"828563e0-c39d-4d5a-8be6-4301c3f9321f\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"60e9d4da-7f27-4acf-9141-df567fbd4f64\",\"DatasourceId\":\"1fee9ad5-7c50-4da3-a93a-d488361be756\"}"
+    },
+    {
+      "path": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"60e9d4da-7f27-4acf-9141-df567fbd4f64\",\"DatasourceId\":\"d90c63b3-9207-4e97-9bbc-49f85cc3da66\"}"
+    }
+  ]
+}
