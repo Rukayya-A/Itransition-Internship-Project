@@ -32,6 +32,10 @@ from pyspark.sql.types import *
 # META   "language_group": "synapse_pyspark"
 # META }
 
+# MARKDOWN ********************
+
+# ## **Yellow Taxis**
+
 # CELL ********************
 
 years = ["2021", "2022", "2023", "2024", "2025"]
@@ -97,6 +101,10 @@ for y in years:
 # META   "language_group": "synapse_pyspark"
 # META }
 
+# MARKDOWN ********************
+
+# ## **Zones Lookup**
+
 # CELL ********************
 
 lookup_schema = StructType([
@@ -109,7 +117,7 @@ lookup_schema = StructType([
 lookup_raw = spark.read \
     .option("header", True) \
     .schema(lookup_schema) \
-    .csv("Files/bronze/mobility/taxi_zone_lookup.csv")
+    .csv("Files/bronze/mobility/zones/taxi_zone_lookup.csv")
 
 lookup_silver = (
     lookup_raw
@@ -117,12 +125,101 @@ lookup_silver = (
     .withColumn("zone", lower(trim(col("Zone"))))
     .withColumn("service_zone", lower(trim(col("service_zone"))))
     .withColumnRenamed("LocationID", "location_id")
+    .withColumn("source_system", lit("NYC_TLC"))
+    .withColumn("ingestion_ts", current_timestamp())
     .dropDuplicates()
 )
 
 lookup_silver.write.format("delta") \
     .mode("overwrite") \
     .saveAsTable("silver.mobility_zone_lookup")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# MARKDOWN ********************
+
+# ## **Zones Shapefiles**
+
+# CELL ********************
+
+%pip install geopandas
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+import zipfile, io, os
+import geopandas as gpd
+
+zones_raw = spark.read.format("binaryFile").load("Files/bronze/mobility/zones/taxi_zones_shapefiles.zip")
+
+zip_bytes = zones_raw.collect()[0].content
+
+extract_path = "/tmp/taxi_zones"
+os.makedirs(extract_path, exist_ok=True)
+with zipfile.ZipFile(io.BytesIO(zip_bytes), "r") as z:
+    z.extractall(extract_path)
+
+gdf = gpd.read_file(os.path.join(extract_path, "taxi_zones.shp"))
+
+gdf["geometry_wkt"] = gdf["geometry"].apply(lambda geom: geom.wkt)
+
+gdf = gdf.drop(columns="geometry")
+
+zones = spark.createDataFrame(gdf)
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+zones_columns = zones.select(
+    col("OBJECTID").cast("int").alias("object_id"),
+    col("Shape_Leng").cast("double").alias("shape_length"),
+    col("Shape_Area").cast("double").alias("shape_area"),
+    lower(trim(col("Zone"))).alias("zone"),
+    col("LocationID").cast("int").alias("location_id"),
+    lower(trim(col("Borough"))).alias("borough"),
+    col("geometry_wkt").cast("string").alias("geometry_wkt")
+)
+
+zones_dedup = zones_columns.dropDuplicates(["location_id", "zone", "borough"])
+
+zones_silver = (
+    zones_dedup
+    .withColumn("source_system", lit("NYC_TLC"))
+    .withColumn("ingestion_ts", current_timestamp())
+)
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+zones_silver.write.format("delta") \
+    .mode("overwrite") \
+    .saveAsTable("silver.mobility_taxi_zones")
 
 # METADATA ********************
 

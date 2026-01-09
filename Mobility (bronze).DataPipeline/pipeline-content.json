@@ -72,8 +72,8 @@
                       "properties": {
                         "type": "Lakehouse",
                         "typeProperties": {
-                          "artifactId": "0f64772b-3943-98e7-4567-118011607498",
-                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "artifactId": "11607498-1180-4567-98e7-39430f64772b",
+                          "workspaceId": "6d40a6b8-5032-4131-96e6-6d99b8654d16",
                           "rootFolder": "Files"
                         },
                         "annotations": []
@@ -101,11 +101,15 @@
                 "secureOutput": false
               },
               "name": "yellow_taxi",
+              "state": "Inactive",
+              "onInactiveMarkAs": "Succeeded",
               "dependsOn": []
             }
           ]
         },
         "name": "ForEach_month",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": []
       },
       {
@@ -152,7 +156,7 @@
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "bronze/mobility",
+                  "folderPath": "bronze/mobility/zones",
                   "fileName": "taxi_zone_lookup.csv"
                 },
                 "columnDelimiter": ",",
@@ -166,8 +170,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "11607498-1180-4567-98e7-39430f64772b",
-                    "workspaceId": "6d40a6b8-5032-4131-96e6-6d99b8654d16",
+                    "artifactId": "0f64772b-3943-98e7-4567-118011607498",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Files"
                   },
                   "annotations": []
@@ -194,8 +198,72 @@
           "secureOutput": false
         },
         "name": "taxi_zone_lookup",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "BinarySource",
+            "formatSettings": {
+              "type": "BinaryReadSettings"
+            },
+            "storeSettings": {
+              "type": "HttpReadSettings",
+              "requestMethod": "GET"
+            },
+            "datasetSettings": {
+              "type": "Binary",
+              "typeProperties": {
+                "location": {
+                  "type": "HttpServerLocation"
+                }
+              },
+              "externalReferences": {
+                "connection": "d19c422f-a32f-44aa-a60c-6baf774e624a"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "BinarySink",
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Binary",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "bronze/mobility/zones",
+                  "fileName": "taxi_zones_shapefiles.zip"
+                }
+              },
+              "linkedService": {
+                "name": "ProjectLakehouse",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "0f64772b-3943-98e7-4567-118011607498",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "taxi_zone_shapefiles",
         "dependsOn": []
       }
     ],

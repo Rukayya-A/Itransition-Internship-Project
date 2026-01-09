@@ -95,6 +95,10 @@ gdp_columns = gdp_parsed.select(
 
 gdp_silver = (
     gdp_columns
+    .filter(
+        (col("year") >= 2021) &
+        (col("year") < 2026)
+    )
     .withColumn("source_system", lit("WB_GDP")) 
     .withColumn("ingestion_ts", current_timestamp())
 )
@@ -151,8 +155,8 @@ fx_silver = (
         current_timestamp().alias("ingestion_ts")
     )
     .filter(
-        (col("TIME_PERIOD") >= "2021-01-01") &
-        (col("TIME_PERIOD") < "2026-01-01")
+        (col("time_period") >= "2021-01-01") &
+        (col("time_period") < "2026-01-01")
     )
 )
 
