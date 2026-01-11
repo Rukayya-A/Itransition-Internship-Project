@@ -82,7 +82,6 @@ gdp_parsed = (
 
 # CELL ********************
 
-
 gdp_columns = gdp_parsed.select(
     col("gdp_data.country.id").alias("country_id"),
     col("gdp_data.country.value").alias("country_name"),
@@ -101,6 +100,7 @@ gdp_silver = (
     )
     .withColumn("source_system", lit("WB_GDP")) 
     .withColumn("ingestion_ts", current_timestamp())
+    .drop_duplicates()
 )
 
 # METADATA ********************
@@ -140,24 +140,30 @@ fx_raw = spark.read.option("header", True).csv("Files/bronze/economy/ecb_fx.csv"
 
 # CELL ********************
 
+fx_columns = fx_raw.select(
+    col("KEY").cast("string").alias("key"),
+    col("CURRENCY").cast("string").alias("currency"),
+    col("CURRENCY_DENOM").cast("string").alias("currency_denom"),
+    to_date(col("TIME_PERIOD")).alias("time_period"),
+    col("OBS_VALUE").cast("double").alias("obs_value"),
+    col("OBS_STATUS").cast("string").alias("obs_status"),
+    col("DECIMALS").cast("int").alias("decimals"),
+    col("TITLE").cast("string").alias("title")
+)
+
+
 fx_silver = (
-    fx_raw
-    .select(
-        col("KEY").cast("string").alias("key"),
-        col("CURRENCY").cast("string").alias("currency"),
-        col("CURRENCY_DENOM").cast("string").alias("currency_denom"),
-        to_date(col("TIME_PERIOD")).alias("time_period"),
-        col("OBS_VALUE").cast("double").alias("obs_value"),
-        col("OBS_STATUS").cast("string").alias("obs_status"),
-        col("DECIMALS").cast("int").alias("decimals"),
-        col("TITLE").cast("string").alias("title"),
-        lit("ECB_FX").alias("source_system"),
-        current_timestamp().alias("ingestion_ts")
-    )
+    fx_columns
     .filter(
         (col("time_period") >= "2021-01-01") &
         (col("time_period") < "2026-01-01")
     )
+    .withColumn("year", year("time_period")) 
+    .withColumn("month", month("time_period"))
+    .withColumn("weekday", dayofweek(col("time_period")))
+    .withColumn("source_system", lit("ECB_FX")) 
+    .withColumn("ingestion_date", current_timestamp())
+    .drop_duplicates()
 )
 
 # METADATA ********************

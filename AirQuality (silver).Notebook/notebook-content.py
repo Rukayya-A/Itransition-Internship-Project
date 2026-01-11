@@ -134,8 +134,11 @@ locations_columns = (
     )
 )
 
-locations_dedup = locations_columns.dropDuplicates(["sensor_id"])
-
+locations_dedup = (
+    locations_columns
+    .filter(col("parameter_name").isin(["co","o3","no2","pm25"]))
+    .dropDuplicates(["sensor_id"])
+)
 locations_silver = (
     locations_dedup
     .withColumn("source_system", lit("OPEN_AQ")) 
@@ -224,8 +227,8 @@ measurements_columns = measurements_parsed.select(
     col("msr_data.measurement.value").cast("double").alias("value"),
 
     col("msr_data.measurement.parameter.id").cast("string").alias("parameter_id"),
-    col("msr_data.measurement.parameter.name").cast("string").alias("parameter"),
-    col("msr_data.measurement.parameter.units").cast("string").alias("unit"),
+    col("msr_data.measurement.parameter.name").cast("string").alias("parameter_name"),
+    col("msr_data.measurement.parameter.units").cast("string").alias("parameter_units"),
 
     to_timestamp("msr_data.measurement.period.datetimeFrom.utc").alias("datetime_from_utc"),
     to_timestamp("msr_data.measurement.period.datetimeFrom.local").alias("datetime_from_local"),
