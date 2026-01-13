@@ -1,4 +1,4 @@
-CREATE TABLE [gold].[FactZoneMeasurementDaily] (
+CREATE TABLE [gold].[FactZoneMeasurementsDaily] (
 
 	[zone_measurement_key] bigint IDENTITY NOT NULL, 
 	[date_key] bigint NOT NULL, 

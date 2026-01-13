@@ -200,235 +200,6 @@
         ]
       },
       {
-        "name": "DimFX",
-        "sourceLineageTag": "[gold].[DimFX]",
-        "columns": [
-          {
-            "name": "fx_key",
-            "dataType": "int64",
-            "sourceColumn": "fx_key",
-            "formatString": "0",
-            "sourceProviderType": "bigint",
-            "sourceLineageTag": "fx_key",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "currency",
-            "dataType": "string",
-            "sourceColumn": "currency",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "currency",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "currency_denom",
-            "dataType": "string",
-            "sourceColumn": "currency_denom",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "currency_denom",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "time_period",
-            "dataType": "dateTime",
-            "sourceColumn": "time_period",
-            "formatString": "General Date",
-            "sourceProviderType": "date",
-            "sourceLineageTag": "time_period",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "obs_value",
-            "dataType": "double",
-            "sourceColumn": "obs_value",
-            "sourceProviderType": "float",
-            "sourceLineageTag": "obs_value",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ]
-          },
-          {
-            "name": "date_key",
-            "dataType": "int64",
-            "sourceColumn": "date_key",
-            "formatString": "0",
-            "sourceProviderType": "bigint",
-            "sourceLineageTag": "date_key",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          }
-        ],
-        "partitions": [
-          {
-            "name": "{{Partition_Name}}",
-            "mode": "directLake",
-            "source": {
-              "type": "entity",
-              "entityName": "DimFX",
-              "expressionSource": "DatabaseQuery",
-              "schemaName": "gold"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "IsTableInBiModel",
-            "value": "False"
-          }
-        ]
-      },
-      {
-        "name": "DimGDP",
-        "sourceLineageTag": "[gold].[DimGDP]",
-        "columns": [
-          {
-            "name": "gdp_key",
-            "dataType": "int64",
-            "sourceColumn": "gdp_key",
-            "formatString": "0",
-            "sourceProviderType": "bigint",
-            "sourceLineageTag": "gdp_key",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "country_id",
-            "dataType": "string",
-            "sourceColumn": "country_id",
-            "sourceProviderType": "char",
-            "sourceLineageTag": "country_id",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "country_name",
-            "dataType": "string",
-            "sourceColumn": "country_name",
-            "sourceProviderType": "varchar",
-            "sourceLineageTag": "country_name",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "iso3",
-            "dataType": "string",
-            "sourceColumn": "iso3",
-            "sourceProviderType": "char",
-            "sourceLineageTag": "iso3",
-            "summarizeBy": "none",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "year",
-            "dataType": "int64",
-            "sourceColumn": "year",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "year",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "gdp_usd",
-            "dataType": "double",
-            "sourceColumn": "gdp_usd",
-            "sourceProviderType": "float",
-            "sourceLineageTag": "gdp_usd",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ]
-          }
-        ],
-        "partitions": [
-          {
-            "name": "{{Partition_Name}}",
-            "mode": "directLake",
-            "source": {
-              "type": "entity",
-              "entityName": "DimGDP",
-              "expressionSource": "DatabaseQuery",
-              "schemaName": "gold"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "IsTableInBiModel",
-            "value": "False"
-          }
-        ]
-      },
-      {
         "name": "DimSensor",
         "sourceLineageTag": "[gold].[DimSensor]",
         "columns": [
@@ -667,12 +438,12 @@
             ]
           },
           {
-            "name": "location_id",
+            "name": "zone_location_id",
             "dataType": "int64",
-            "sourceColumn": "location_id",
+            "sourceColumn": "zone_location_id",
             "formatString": "0",
             "sourceProviderType": "int",
-            "sourceLineageTag": "location_id",
+            "sourceLineageTag": "zone_location_id",
             "summarizeBy": "sum",
             "annotations": [
               {
@@ -682,11 +453,11 @@
             ]
           },
           {
-            "name": "zone",
+            "name": "zone_name",
             "dataType": "string",
-            "sourceColumn": "zone",
+            "sourceColumn": "zone_name",
             "sourceProviderType": "varchar",
-            "sourceLineageTag": "zone",
+            "sourceLineageTag": "zone_name",
             "summarizeBy": "none",
             "annotations": [
               {
@@ -1168,8 +939,8 @@
         ]
       },
       {
-        "name": "FactZoneMeasurementDaily",
-        "sourceLineageTag": "[gold].[FactZoneMeasurementDaily]",
+        "name": "FactZoneMeasurementsDaily",
+        "sourceLineageTag": "[gold].[FactZoneMeasurementsDaily]",
         "columns": [
           {
             "name": "zone_measurement_key",
@@ -1484,7 +1255,7 @@
             "mode": "directLake",
             "source": {
               "type": "entity",
-              "entityName": "FactZoneMeasurementDaily",
+              "entityName": "FactZoneMeasurementsDaily",
               "expressionSource": "DatabaseQuery",
               "schemaName": "gold"
             }

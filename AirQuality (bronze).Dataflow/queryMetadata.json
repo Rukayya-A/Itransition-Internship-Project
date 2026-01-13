@@ -21,32 +21,32 @@
       "isHidden": true,
       "loadEnabled": false
     },
-    "OpenAQ_measurements": {
-      "queryId": "22f5992f-b281-42e3-b1b5-cdcc169e10f8",
-      "queryName": "OpenAQ_measurements",
-      "loadEnabled": false
-    },
-    "OpenAQ_measurements_DataDestination": {
-      "queryId": "b7fb67aa-4099-4653-b5ed-3570e7805302",
-      "queryName": "OpenAQ_measurements_DataDestination",
-      "isHidden": true,
-      "loadEnabled": false
-    },
-    "OpenAQ_measurements_DataDestinationTransform": {
-      "queryId": "c4ffb395-fe35-4f38-9fdd-845d9a90973f",
-      "queryName": "OpenAQ_measurements_DataDestinationTransform",
-      "isHidden": true,
-      "loadEnabled": false
-    },
     "OpenAQ_locations_DataDestination": {
-      "queryId": "06212ec6-d7d7-4328-9a0d-8d1b6b81878d",
+      "queryId": "3f7ecdb3-70db-41e5-9a73-fd66b8666655",
       "queryName": "OpenAQ_locations_DataDestination",
       "isHidden": true,
       "loadEnabled": false
     },
     "OpenAQ_locations_DataDestinationTransform": {
-      "queryId": "e5353dc1-1aca-41cb-9ad6-fef1dd2937a2",
+      "queryId": "1814fe72-77d6-4aae-a56a-a1602454cf33",
       "queryName": "OpenAQ_locations_DataDestinationTransform",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "OpenAQ_measurements": {
+      "queryId": "7c022721-3529-4cfd-8824-656488e9162c",
+      "queryName": "OpenAQ_measurements",
+      "loadEnabled": false
+    },
+    "OpenAQ_measurements_DataDestination (2)": {
+      "queryId": "01bae6c7-58f8-405a-9223-0a9ff3150844",
+      "queryName": "OpenAQ_measurements_DataDestination (2)",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "OpenAQ_measurements_DataDestinationTransform (2)": {
+      "queryId": "c6ec9cec-4fca-4989-8c6b-9ff1c6e6b667",
+      "queryName": "OpenAQ_measurements_DataDestinationTransform (2)",
       "isHidden": true,
       "loadEnabled": false
     }

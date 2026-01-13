@@ -76,7 +76,7 @@ location_schema = StructType([
     ]), True)
 ])
 
-locations = spark.read.text("Files/bronze/airquality/locations.JSON")
+locations = spark.read.text("Files/bronze/airquality/locations.json")
 
 locations_clean = (
     locations
@@ -196,7 +196,7 @@ measurement_schema = StructType([
 
 
 measurements = spark.read.text(
-    "Files/bronze/airquality/measurements.JSON"
+    "Files/bronze/airquality/measurements.json"
 )
 
 measurements_clean = measurements.select(
