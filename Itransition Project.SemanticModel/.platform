@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Itransition Project"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f424bfd9-52b7-826d-436b-31b94cd4f9a3"
+  }
+}

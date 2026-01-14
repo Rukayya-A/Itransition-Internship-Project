@@ -1,0 +1,69 @@
+table DimGDP
+	lineageTag: 2779e355-292b-4832-a2a2-df3ab0258388
+	sourceLineageTag: [gold].[DimGDP]
+
+	column gdp_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 01e22ac5-0008-4037-a35a-982c5d18c4ee
+		sourceLineageTag: gdp_key
+		summarizeBy: sum
+		sourceColumn: gdp_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_id
+		dataType: string
+		lineageTag: c7a31b0f-0739-47c5-be4d-ea1325c78a65
+		sourceLineageTag: country_id
+		summarizeBy: none
+		sourceColumn: country_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_name
+		dataType: string
+		lineageTag: 23f5e8dc-927f-48eb-8a2a-01c1fa02c8c5
+		sourceLineageTag: country_name
+		summarizeBy: none
+		sourceColumn: country_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column iso3
+		dataType: string
+		lineageTag: f87abad0-d945-473f-a7f4-37b20720aac4
+		sourceLineageTag: iso3
+		summarizeBy: none
+		sourceColumn: iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: a5a46cd9-f7b7-4fb9-ab2d-5f8e8b280057
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column gdp_usd
+		dataType: double
+		lineageTag: 7a235dd3-1591-47ab-b3d8-ef22fe43c378
+		sourceLineageTag: gdp_usd
+		summarizeBy: sum
+		sourceColumn: gdp_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DimGDP = entity
+		mode: directLake
+		source
+			entityName: DimGDP
+			schemaName: gold
+			expressionSource: 'DirectLake - ProjectWarehouse'
+

@@ -1,0 +1,112 @@
+table FactAirQualityDaily
+	lineageTag: eca255fd-c9dd-46e6-9117-c8185fb4a16f
+	sourceLineageTag: [gold].[FactAirQualityDaily]
+
+	column measurement_key
+		dataType: int64
+		formatString: 0
+		lineageTag: aa643f74-5db6-4e08-b1b4-46b05c874549
+		sourceLineageTag: measurement_key
+		summarizeBy: sum
+		sourceColumn: measurement_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7758c866-c0f7-44c6-9ef4-e82d7d227271
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column sensor_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 42ceeceb-93a0-433f-91e9-c206727002c8
+		sourceLineageTag: sensor_key
+		summarizeBy: none
+		sourceColumn: sensor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c57cf70-95d1-4ee1-b213-ee95e61cde3d
+		sourceLineageTag: location_id
+		summarizeBy: sum
+		sourceColumn: location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_measurements
+		dataType: int64
+		formatString: 0
+		lineageTag: d7f3309b-47de-4ed6-a42d-ec430ddceb64
+		sourceLineageTag: total_measurements
+		summarizeBy: sum
+		sourceColumn: total_measurements
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_value
+		dataType: double
+		lineageTag: 61c97cd0-67c4-406b-9e8d-a8d5a0289d89
+		sourceLineageTag: avg_value
+		summarizeBy: sum
+		sourceColumn: avg_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column min_value
+		dataType: double
+		lineageTag: fab02eb5-51d0-4291-9d22-3b96b925ece0
+		sourceLineageTag: min_value
+		summarizeBy: sum
+		sourceColumn: min_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_value
+		dataType: double
+		lineageTag: 3c972975-2a15-48c2-83f1-f9cc18f5380b
+		sourceLineageTag: max_value
+		summarizeBy: sum
+		sourceColumn: max_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column parameter_name
+		dataType: string
+		lineageTag: f399cba5-e93d-404a-8c02-55fbffce5424
+		sourceLineageTag: parameter_name
+		summarizeBy: none
+		sourceColumn: parameter_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column parameter_units
+		dataType: string
+		lineageTag: 3b7fee00-6ac1-4734-9222-b750fd740afc
+		sourceLineageTag: parameter_units
+		summarizeBy: none
+		sourceColumn: parameter_units
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactAirQualityDaily = entity
+		mode: directLake
+		source
+			entityName: FactAirQualityDaily
+			schemaName: gold
+			expressionSource: 'DirectLake - ProjectWarehouse'
+

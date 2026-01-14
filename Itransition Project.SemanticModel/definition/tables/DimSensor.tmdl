@@ -1,0 +1,137 @@
+table DimSensor
+	lineageTag: e23a066e-3901-4b50-a2b3-9bc495892a28
+	sourceLineageTag: [gold].[DimSensor]
+
+	column sensor_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 061af767-88d2-411f-914c-47790cbc3195
+		sourceLineageTag: sensor_key
+		summarizeBy: none
+		sourceColumn: sensor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 80e5604b-f544-442d-a01a-12e23cf5dbed
+		sourceLineageTag: zone_key
+		summarizeBy: none
+		sourceColumn: zone_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column sensor_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 73d50e0a-635c-4ba0-89ec-0a016d4001a7
+		sourceLineageTag: sensor_id
+		summarizeBy: none
+		sourceColumn: sensor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sensor_name
+		dataType: string
+		lineageTag: 4cece85b-f059-4b8f-9ed9-be749504bd09
+		sourceLineageTag: sensor_name
+		summarizeBy: none
+		sourceColumn: sensor_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column parameter_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ee5a6774-0805-426f-bd28-e49f55711f84
+		sourceLineageTag: parameter_id
+		summarizeBy: none
+		sourceColumn: parameter_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column parameter_name
+		dataType: string
+		lineageTag: 20061333-f059-4c94-a0c7-6471c0e47f84
+		sourceLineageTag: parameter_name
+		summarizeBy: none
+		sourceColumn: parameter_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column parameter_units
+		dataType: string
+		lineageTag: 0cac60ac-9d13-43d0-b581-156dd413e75a
+		sourceLineageTag: parameter_units
+		summarizeBy: none
+		sourceColumn: parameter_units
+
+		annotation SummarizationSetBy = Automatic
+
+	column parameter_display_name
+		dataType: string
+		lineageTag: 7ad408fa-d2b3-4190-b0ab-c549fea17a09
+		sourceLineageTag: parameter_display_name
+		summarizeBy: none
+		sourceColumn: parameter_display_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b455cafe-757a-49e7-9bf5-5fc6affbc22b
+		sourceLineageTag: location_id
+		summarizeBy: none
+		sourceColumn: location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: 49aa98f7-5273-49bd-b447-8399d93d09fc
+		sourceLineageTag: latitude
+		summarizeBy: none
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: 0a141cc5-2786-497d-a35d-b76a3f0ffaaf
+		sourceLineageTag: longitude
+		summarizeBy: none
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column country_code
+		dataType: string
+		lineageTag: 9a20cf33-a0dd-4588-ac4e-d4ef3113adf6
+		sourceLineageTag: country_code
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_name
+		dataType: string
+		lineageTag: a7a0305e-7c0f-4599-8e79-11b986580853
+		sourceLineageTag: country_name
+		summarizeBy: none
+		sourceColumn: country_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSensor = entity
+		mode: directLake
+		source
+			entityName: DimSensor
+			schemaName: gold
+			expressionSource: 'DirectLake - ProjectWarehouse'
+

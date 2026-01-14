@@ -1,0 +1,58 @@
+table DimZone
+	lineageTag: f7353f71-f60b-47a8-9380-b920457d0ce1
+	sourceLineageTag: [gold].[DimZone]
+
+	column zone_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fbbebe9-da98-4af2-ad13-7f5836127189
+		sourceLineageTag: zone_key
+		summarizeBy: none
+		sourceColumn: zone_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone_location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 19a1c587-8d69-468b-b44a-271a22c85482
+		sourceLineageTag: zone_location_id
+		summarizeBy: sum
+		sourceColumn: zone_location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone_name
+		dataType: string
+		lineageTag: a8c4edb8-f5ee-40f5-904b-1a688809d99f
+		sourceLineageTag: zone_name
+		summarizeBy: none
+		sourceColumn: zone_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough
+		dataType: string
+		lineageTag: 43a9cff2-a547-4868-a0bf-80c56369b475
+		sourceLineageTag: borough
+		summarizeBy: none
+		sourceColumn: borough
+
+		annotation SummarizationSetBy = Automatic
+
+	column geometry_geojson
+		dataType: string
+		lineageTag: 5f75b21b-a384-4474-9398-9e2790f0a7b1
+		sourceLineageTag: geometry_geojson
+		summarizeBy: none
+		sourceColumn: geometry_geojson
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimZone = entity
+		mode: directLake
+		source
+			entityName: DimZone
+			schemaName: gold
+			expressionSource: 'DirectLake - ProjectWarehouse'
+

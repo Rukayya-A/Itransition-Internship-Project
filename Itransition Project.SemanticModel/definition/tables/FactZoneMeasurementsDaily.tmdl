@@ -1,0 +1,203 @@
+table FactZoneMeasurementsDaily
+	lineageTag: da92e1c3-25d1-40cc-a1f8-a40183c5a167
+	sourceLineageTag: [gold].[FactZoneMeasurementsDaily]
+
+	column zone_measurement_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ba625786-0564-4461-8626-1ea58ecf7889
+		sourceLineageTag: zone_measurement_key
+		summarizeBy: sum
+		sourceColumn: zone_measurement_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 5be67a2f-2b40-4579-b163-bec6e5b61c4f
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c41bcabb-56a9-4eb9-9233-c6f284be1479
+		sourceLineageTag: zone_key
+		summarizeBy: none
+		sourceColumn: zone_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_trips
+		dataType: int64
+		formatString: 0
+		lineageTag: 48b02918-a4ef-436c-bbc3-a08bd9bd7bd0
+		sourceLineageTag: total_trips
+		summarizeBy: sum
+		sourceColumn: total_trips
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_passengers
+		dataType: int64
+		formatString: 0
+		lineageTag: 25d15a62-98ee-4db3-aac5-af5fed6d1100
+		sourceLineageTag: total_passengers
+		summarizeBy: sum
+		sourceColumn: total_passengers
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_passengers
+		dataType: double
+		lineageTag: 5e1c8a5c-de51-423e-8af5-19a201466cee
+		sourceLineageTag: avg_passengers
+		summarizeBy: sum
+		sourceColumn: avg_passengers
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_base_fare_usd
+		dataType: double
+		lineageTag: 595ccc9e-d10a-44b0-9743-65d9a33ce9bc
+		sourceLineageTag: total_base_fare_usd
+		summarizeBy: sum
+		sourceColumn: total_base_fare_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_trip_amount_usd
+		dataType: double
+		lineageTag: be912ab4-8ffe-4dfb-9f51-4dde73283485
+		sourceLineageTag: total_trip_amount_usd
+		summarizeBy: sum
+		sourceColumn: total_trip_amount_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_base_fare_usd
+		dataType: double
+		lineageTag: a5969fe0-0819-4da8-a89d-77c38b416129
+		sourceLineageTag: avg_base_fare_usd
+		summarizeBy: sum
+		sourceColumn: avg_base_fare_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_trip_amount_usd
+		dataType: double
+		lineageTag: 550dd801-5bea-4198-b37d-63e87ca875f9
+		sourceLineageTag: avg_trip_amount_usd
+		summarizeBy: sum
+		sourceColumn: avg_trip_amount_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_distance_miles
+		dataType: double
+		lineageTag: 2718896b-08b6-4ad4-8a4e-a26095fcd7e7
+		sourceLineageTag: total_distance_miles
+		summarizeBy: sum
+		sourceColumn: total_distance_miles
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_trip_distance_miles
+		dataType: double
+		lineageTag: 7e3a110a-acf4-4934-a565-131470aca0ec
+		sourceLineageTag: avg_trip_distance_miles
+		summarizeBy: sum
+		sourceColumn: avg_trip_distance_miles
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_trip_duration_min
+		dataType: double
+		lineageTag: 3ed7dd3a-2ed4-4d1d-bf01-62e0850389f1
+		sourceLineageTag: avg_trip_duration_min
+		summarizeBy: sum
+		sourceColumn: avg_trip_duration_min
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_measurements
+		dataType: int64
+		formatString: 0
+		lineageTag: 67802936-1212-4168-9500-7704cb50eb79
+		sourceLineageTag: total_measurements
+		summarizeBy: sum
+		sourceColumn: total_measurements
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_pm25
+		dataType: double
+		lineageTag: 3a24d85d-8b13-4da9-8d5e-eff6a4beef8e
+		sourceLineageTag: avg_pm25
+		summarizeBy: sum
+		sourceColumn: avg_pm25
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_no2
+		dataType: double
+		lineageTag: 2a9686cf-9ea2-4bec-9fd9-bfc327fcc160
+		sourceLineageTag: avg_no2
+		summarizeBy: sum
+		sourceColumn: avg_no2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_o3
+		dataType: double
+		lineageTag: 8ed2011a-1a26-4206-9867-ef1f8d20e210
+		sourceLineageTag: avg_o3
+		summarizeBy: sum
+		sourceColumn: avg_o3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_co
+		dataType: double
+		lineageTag: c35d2dd9-7839-4995-a911-3ddf5980c472
+		sourceLineageTag: avg_co
+		summarizeBy: sum
+		sourceColumn: avg_co
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactZoneMeasurementsDaily = entity
+		mode: directLake
+		source
+			entityName: FactZoneMeasurementsDaily
+			schemaName: gold
+			expressionSource: 'DirectLake - ProjectWarehouse'
+

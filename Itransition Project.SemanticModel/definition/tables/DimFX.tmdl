@@ -1,0 +1,70 @@
+table DimFX
+	lineageTag: f889e300-c90c-4156-85ea-21115a37615a
+	sourceLineageTag: [gold].[DimFX]
+
+	column fx_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d755167-aab7-40a1-a379-50b857c72c93
+		sourceLineageTag: fx_key
+		summarizeBy: none
+		sourceColumn: fx_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: f9c2fefd-7adc-4836-b965-2408ac48febc
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_denom
+		dataType: string
+		lineageTag: 36359baf-70c9-48fd-b487-77f8e2fdcf0d
+		sourceLineageTag: currency_denom
+		summarizeBy: none
+		sourceColumn: currency_denom
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_period
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6e97e185-dfe6-4a42-921c-292f400795b7
+		sourceLineageTag: time_period
+		summarizeBy: none
+		sourceColumn: time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column obs_value
+		dataType: double
+		lineageTag: b20fceb5-3939-4648-8984-617197814545
+		sourceLineageTag: obs_value
+		summarizeBy: none
+		sourceColumn: obs_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b41394e-4b95-45e7-b5aa-34de0a49c081
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimFX = entity
+		mode: directLake
+		source
+			entityName: DimFX
+			schemaName: gold
+			expressionSource: 'DirectLake - ProjectWarehouse'
+
