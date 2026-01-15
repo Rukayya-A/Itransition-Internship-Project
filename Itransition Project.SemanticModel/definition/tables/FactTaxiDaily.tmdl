@@ -2,9 +2,196 @@ table FactTaxiDaily
 	lineageTag: a0ab178a-88c6-4965-aa43-237defdb6c9b
 	sourceLineageTag: [gold].[FactTaxiDaily]
 
-	measure 'Total Trips' = SUM(FactTaxiDaily[total_trips])
+	measure 'Total Revenue USD' = ```
+			SUM(FactTaxiDaily[total_trip_amount_usd])
+			
+			```
+		lineageTag: 7ecf7fd1-911a-4ef3-8ecc-93b07437165f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Trips per Day' = ```
+			
+			AVERAGEX (
+			    VALUES ( DimDate[date_key] ),
+			    [Total Trips]
+			)
+			
+			```
+		lineageTag: 740aa2e6-b19d-4b30-83ab-6e5bd550ebfe
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Trips' = ```
+			SUM(FactTaxiDaily[total_trips])
+			
+			```
 		formatString: 0
-		lineageTag: 7c2016fd-e2e7-4bbf-8977-6584754cc1fc
+		lineageTag: a4783598-ece2-4ee0-9a5f-621b063daee2
+
+		changedProperty = Name
+
+	measure 'Avg Base Fare USD' = ```
+			
+			AVERAGE(FactTaxiDaily[avg_base_fare_usd])
+			
+			```
+		lineageTag: 01c06ec2-1228-4a17-9956-699478250890
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Total Fare USD' = ```
+			AVERAGE(FactTaxiDaily[avg_trip_amount_usd])
+			
+			```
+		lineageTag: d3e1ea8c-19fc-4afc-8193-82917e1053e4
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Base Fare USD' = ```
+			SUM(FactTaxiDaily[total_base_fare_usd])
+			
+			```
+		lineageTag: eabfa545-fefe-4295-9e27-33a0adb0f3c7
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Revenue EUR' = ```
+			
+			SUMX(
+			    FactTaxiDaily,
+			    FactTaxiDaily[total_trip_amount_usd] /
+			    RELATED(DimFX[eur_to_usd])
+			)
+			
+			```
+		lineageTag: 3830b17f-e768-4d33-bfa2-71274692b121
+
+		changedProperty = Name
+
+	measure 'Avg Total Fare EUR' = ```
+			
+			AVERAGEX(
+			    FactTaxiDaily,
+			    FactTaxiDaily[avg_trip_amount_usd] / RELATED(DimFX[eur_to_usd])
+			)
+			
+			```
+		lineageTag: 3aa2b017-681e-4e81-8190-fba085c5bb7f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Distance (Miles)' = ```
+			
+			SUM (FactTaxiDaily[total_distance_miles])
+			
+			```
+		lineageTag: fd79c763-32c2-4bc8-a7e4-cbc6a1183d06
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Passengers' = ```
+			
+			SUM (FactTaxiDaily[total_passengers])
+			
+			```
+		formatString: 0
+		lineageTag: e62a6b94-2971-41ae-ab8f-4ada2ed4875a
+
+		changedProperty = Name
+
+	measure 'Avg Revenue per Trip (USD)' = ```
+			
+			DIVIDE (
+			    [Total Revenue USD],
+			    [Total Trips]
+			)
+			
+			```
+		lineageTag: 02f0769b-1fab-4371-82ae-d5dd8864cfcf
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Trip Distance (Miles)' =
+			
+			DIVIDE (
+			    [Total Distance (Miles)],
+			    [Total Trips]
+			)
+		lineageTag: c33e9cb4-accc-49f3-8d1d-30e3e6fc38b1
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Passengers per Trip' = ```
+			
+			DIVIDE (
+			    [Total Passengers],
+			    [Total Trips]
+			)
+			
+			```
+		lineageTag: c0e6b5b7-cea9-4a5d-b904-6429c37ebc04
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Traffic P75' =
+			
+			PERCENTILEX.INC (
+			    ALLSELECTED ( DimZone[zone_key] ),
+			    [Avg Trips per Day],
+			    0.75
+			)
+		lineageTag: e06d4215-2658-43de-adc9-00f257b9cfb5
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'High Traffic Zone' = ```
+			
+			IF (
+			    [Avg Trips per Day] >= [Traffic P75],
+			    1,
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 4e1ad77f-69b8-45c9-b06f-d904a86e3f56
+
+		changedProperty = Name
+
+	measure Measure
+		lineageTag: 578eb691-003f-4464-9c84-80df48573c03
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Average Trip Duration (Minutes)' = ```
+			
+			AVG (FactTaxiDaily[total_distance_miles])
+			
+			```
+		lineageTag: 8fcff1d2-8a09-4e9a-9cd0-8508d996b290
 
 		changedProperty = Name
 

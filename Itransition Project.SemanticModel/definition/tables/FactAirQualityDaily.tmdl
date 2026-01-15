@@ -2,6 +2,49 @@ table FactAirQualityDaily
 	lineageTag: eca255fd-c9dd-46e6-9117-c8185fb4a16f
 	sourceLineageTag: [gold].[FactAirQualityDaily]
 
+	measure 'Avg Pollution' = ```
+			
+			AVERAGE(FactAirQualityDaily[avg_value])
+			
+			```
+		lineageTag: d8527a45-69ef-4035-8419-cf9b0d26306b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Min Pollution' = ```
+			
+			MIN(FactAirQualityDaily[min_value])
+			
+			```
+		lineageTag: eec69ec6-74c1-4504-bb8c-78deef6568d5
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Max Pollution' = ```
+			
+			MAX(FactAirQualityDaily[max_value])
+			
+			```
+		lineageTag: e91e6bce-4d97-42b2-ba99-58092cf5113d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Measurements' = ```
+			
+			SUM(FactAirQualityDaily[total_measurements])
+			
+			```
+		formatString: 0
+		lineageTag: ddaeb008-fe31-4507-8140-2a645cd22800
+
+		changedProperty = Name
+
 	column measurement_key
 		dataType: int64
 		formatString: 0

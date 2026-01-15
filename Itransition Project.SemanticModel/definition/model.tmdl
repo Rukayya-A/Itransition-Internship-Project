@@ -18,6 +18,6 @@ ref table DimZone
 ref table DimSensor
 ref table FactAirQualityDaily
 ref table FactTaxiDaily
-ref table DimFX
 ref table DimGDP
+ref table DimFX
 

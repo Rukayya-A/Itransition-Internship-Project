@@ -262,11 +262,11 @@
             ]
           },
           {
-            "name": "obs_value",
+            "name": "eur_to_usd",
             "dataType": "double",
-            "sourceColumn": "obs_value",
+            "sourceColumn": "eur_to_usd",
             "sourceProviderType": "float",
-            "sourceLineageTag": "obs_value",
+            "sourceLineageTag": "eur_to_usd",
             "summarizeBy": "sum",
             "annotations": [
               {

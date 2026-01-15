@@ -27,7 +27,7 @@ table DimDate
 		formatString: 0
 		lineageTag: 1f82f47a-7439-490a-9bd4-5025b6d6d9fe
 		sourceLineageTag: year
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: year
 
 		annotation SummarizationSetBy = Automatic

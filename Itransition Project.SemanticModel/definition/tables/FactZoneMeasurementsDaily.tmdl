@@ -2,6 +2,219 @@ table FactZoneMeasurementsDaily
 	lineageTag: da92e1c3-25d1-40cc-a1f8-a40183c5a167
 	sourceLineageTag: [gold].[FactZoneMeasurementsDaily]
 
+	measure 'Avg PM2.5' = ```
+			
+			AVERAGE(FactZoneMeasurementsDaily[avg_pm25])
+			
+			```
+		lineageTag: ea971a3f-d6ca-4316-a9bd-2e856263cb79
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg NO2' = ```
+			
+			AVERAGE(FactZoneMeasurementsDaily[avg_no2])
+			
+			```
+		lineageTag: d14bda43-4b59-4ea6-9067-83f9a808821c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg O3' = ```
+			
+			AVERAGE(FactZoneMeasurementsDaily[avg_o3])
+			
+			```
+		lineageTag: 514f64bf-c095-4801-9f8b-907b2002e60a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg CO' = ```
+			
+			AVERAGE(FactZoneMeasurementsDaily[avg_co])
+			
+			```
+		lineageTag: 87171aac-4f06-47e7-872a-3c2687b9d2bc
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'PM2.5 Hotspot' = ```
+			
+			IF ( [Avg PM2.5] > 35, 1, 0 )
+			
+			```
+		formatString: 0
+		lineageTag: ca36ff07-3e6d-46af-9a2f-d0074e06f1b3
+
+		changedProperty = Name
+
+	measure 'NO2 Hotspot' = ```
+			
+			IF ( [Avg NO2] > 100, 1, 0 )
+			
+			```
+		formatString: 0
+		lineageTag: 4f715489-ccef-4eaa-bef0-78a4d8797aa9
+
+		changedProperty = Name
+
+	measure 'Monthly Avg PM2.5' = ```
+			
+			AVERAGEX (
+			    VALUES ( DimDate[month] ),
+			    [Avg PM2.5]
+			)
+			
+			```
+		lineageTag: 067c73ac-53c1-4cc0-a33a-66af92ed2b70
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'CO Hotspot' = ```
+			
+			IF ( [Avg CO] > 9, 1, 0 )
+			
+			```
+		formatString: 0
+		lineageTag: ad88550b-7823-460c-a09f-1d96cce4d3b7
+
+		changedProperty = Name
+
+	measure 'O3 Hotspot' = ```
+			
+			IF ( [Avg O3] > 120, 1, 0 )
+			
+			```
+		formatString: 0
+		lineageTag: a6e31805-ab36-4806-bea9-7e5a8de2e8c1
+
+		changedProperty = Name
+
+	measure 'Monthly Avg NO2' = ```
+			
+			AVERAGEX (
+			    VALUES ( DimDate[month] ),
+			    [Avg NO2]
+			)
+			
+			```
+		lineageTag: 053093a6-c1f3-4084-b91e-413da9ff8500
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Monthly Avg O3' = ```
+			
+			AVERAGEX (
+			    VALUES ( DimDate[month] ),
+			    [Avg O3]
+			)
+			
+			```
+		lineageTag: 45a6932d-398b-475f-a6ec-fab34f700e15
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Monthly Avg CO' = ```
+			
+			AVERAGEX (
+			    VALUES ( DimDate[month] ),
+			    [Avg CO]
+			)
+			
+			```
+		lineageTag: 92c8c934-fd3d-4f42-a010-a9a605cb2e37
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Trips per Day' = ```
+			
+			SUM ( FactZoneMeasurementsDaily[total_trips] )
+			
+			```
+		formatString: 0
+		lineageTag: 44ddfbe4-0ac3-4486-aeab-bd439d514f36
+
+		changedProperty = Name
+
+	measure 'PM2.5 per 1k Trips' = ```
+			
+			DIVIDE (
+			    [Avg PM2.5],
+			    [Avg Trips per Day]
+			) * 1000
+			
+			```
+		lineageTag: 27143e5b-39ff-44a0-ba13-f8fdeb55b723
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'NO2 per 1k Trips' = ```
+			
+			DIVIDE (
+			    [Avg NO2],
+			    [Avg Trips per Day]
+			) * 1000
+			
+			```
+		lineageTag: 525f80f2-ff08-418d-8b14-8c9c96fce64c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Traffic PM2.5 Risk' = ```
+			
+			IF (
+			    [High Traffic Zone] = 1 &&
+			    [Avg PM2.5] > 35,
+			    1,
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: d8684ae9-8699-420e-b704-ae5cfb176100
+
+		changedProperty = Name
+
+	measure 'Traffic NO2 Risk' = ```
+			
+			IF (
+			    [High Traffic Zone] = 1 &&
+			    [Avg NO2] > 100,
+			    1,
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: faa3e323-3085-4a2f-af60-eb6ff34e266c
+
+		changedProperty = Name
+
+	measure 'Corr Trips vs PM2.5'
+		lineageTag: 4b41cb6a-9456-44af-974f-207bbaf2297a
+
+		changedProperty = Name
+
 	column zone_measurement_key
 		dataType: int64
 		formatString: 0

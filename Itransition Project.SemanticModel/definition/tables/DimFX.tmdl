@@ -1,20 +1,20 @@
 table DimFX
-	lineageTag: f889e300-c90c-4156-85ea-21115a37615a
+	lineageTag: 243ab5ce-e4ee-4ab5-804d-f57d5ee555a8
 	sourceLineageTag: [gold].[DimFX]
 
 	column fx_key
 		dataType: int64
 		formatString: 0
-		lineageTag: 3d755167-aab7-40a1-a379-50b857c72c93
+		lineageTag: 4efba8aa-ed11-4ff9-8caa-24ad3bdd35eb
 		sourceLineageTag: fx_key
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: fx_key
 
 		annotation SummarizationSetBy = Automatic
 
 	column currency
 		dataType: string
-		lineageTag: f9c2fefd-7adc-4836-b965-2408ac48febc
+		lineageTag: 9f00ca57-f860-43c4-8455-a2027ddde56d
 		sourceLineageTag: currency
 		summarizeBy: none
 		sourceColumn: currency
@@ -23,7 +23,7 @@ table DimFX
 
 	column currency_denom
 		dataType: string
-		lineageTag: 36359baf-70c9-48fd-b487-77f8e2fdcf0d
+		lineageTag: 268322a9-deba-4a09-b394-b6d3de7aac35
 		sourceLineageTag: currency_denom
 		summarizeBy: none
 		sourceColumn: currency_denom
@@ -33,19 +33,19 @@ table DimFX
 	column time_period
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 6e97e185-dfe6-4a42-921c-292f400795b7
+		lineageTag: b92f5623-7fbf-44f8-81c8-ce449e6b16a4
 		sourceLineageTag: time_period
 		summarizeBy: none
 		sourceColumn: time_period
 
 		annotation SummarizationSetBy = Automatic
 
-	column obs_value
+	column eur_to_usd
 		dataType: double
-		lineageTag: b20fceb5-3939-4648-8984-617197814545
-		sourceLineageTag: obs_value
-		summarizeBy: none
-		sourceColumn: obs_value
+		lineageTag: 0888f8d9-ad07-4cb6-8d51-5c17431641f3
+		sourceLineageTag: eur_to_usd
+		summarizeBy: sum
+		sourceColumn: eur_to_usd
 
 		annotation SummarizationSetBy = Automatic
 
@@ -54,7 +54,7 @@ table DimFX
 	column date_key
 		dataType: int64
 		formatString: 0
-		lineageTag: 9b41394e-4b95-45e7-b5aa-34de0a49c081
+		lineageTag: cb541faf-7a9b-4efe-8211-03d6dc1b52f2
 		sourceLineageTag: date_key
 		summarizeBy: none
 		sourceColumn: date_key

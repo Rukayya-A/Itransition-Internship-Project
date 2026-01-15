@@ -1,0 +1,134 @@
+{
+  "config": "{\"version\":\"5.69\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY25SU12\",\"type\":2,\"version\":{\"visual\":\"2.5.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "filters": "[{\"name\":\"bf62bbdf156d0a466aad\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDate\"}},\"Property\":\"date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "b07a2df590037db0a8bc",
+      "config": "{}",
+      "name": "791302aea8e34012e844"
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY25SU12",
+            "path": "BaseThemes/CY25SU12.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Trips",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "282494da91dddab0a8a0",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"08c61c49605205771ad7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.041950422228275,\"y\":410.46472350858073,\"z\":1000,\"width\":630.1323889948243,\"height\":310.045219286298,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Y\":[{\"queryRef\":\"FactTaxiDaily.Total Trips\"}],\"Category\":[{\"queryRef\":\"DimDate.day_name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Trips\"},\"Name\":\"FactTaxiDaily.Total Trips\",\"NativeReferenceName\":\"Total Trips\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"day_name\"},\"Name\":\"DimDate.day_name\",\"NativeReferenceName\":\"day_name\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Trips\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 310.05,
+          "width": 630.13,
+          "x": 10.04,
+          "y": 410.46,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"3ee10a84c0a6000e7747\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.041950422228275,\"y\":0,\"z\":0,\"width\":630.1323889948243,\"height\":410.46472350858073,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"FactTaxiDaily.Total Trips\"}],\"Category\":[{\"queryRef\":\"DimDate.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Trips\"},\"Name\":\"FactTaxiDaily.Total Trips\",\"NativeReferenceName\":\"Total Trips\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"DimDate.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 410.46,
+          "width": 630.13,
+          "x": 10.04,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"4a4a80ef3bde12140252\",\"layouts\":[{\"id\":0,\"position\":{\"x\":876.160174339417,\"y\":410.46472350858073,\"z\":2001,\"width\":404.18850449468806,\"height\":310.045219286298,\"tabOrder\":2001}}],\"singleVisual\":{\"visualType\":\"advancedSlicerVisual\",\"projections\":{\"Values\":[{\"queryRef\":\"DimZone.borough\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimZone\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"borough\"},\"Name\":\"DimZone.borough\",\"NativeReferenceName\":\"Borough\"}]},\"columnProperties\":{\"DimZone.borough\":{\"displayName\":\"Borough\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3}}",
+          "filters": "[{\"name\":\"554a0023811268820a9d\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimZone\"}},\"Property\":\"borough\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"785d298012b31a0b5370\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimZone\"}},\"Property\":\"borough\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimZone\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"borough\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"ordinal\":1}]",
+          "height": 310.05,
+          "width": 404.19,
+          "x": 876.16,
+          "y": 410.46,
+          "z": 2001.00
+        },
+        {
+          "config": "{\"name\":\"b41761457a420c410c70\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640.1743394170526,\"y\":0,\"z\":2000,\"width\":640.1743394170526,\"height\":410.46472350858073,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"X\":[{\"queryRef\":\"FactTaxiDaily.Total Distance (Miles)\",\"active\":true}],\"Y\":[{\"queryRef\":\"FactTaxiDaily.Total Revenue USD\"}],\"Category\":[{\"queryRef\":\"DimDate.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Distance (Miles)\"},\"Name\":\"FactTaxiDaily.Total Distance (Miles)\",\"NativeReferenceName\":\"Total Distance (Miles)\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue USD\"},\"Name\":\"FactTaxiDaily.Total Revenue USD\",\"NativeReferenceName\":\"Total Revenue USD\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"DimDate.date\",\"NativeReferenceName\":\"date\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 410.46,
+          "width": 640.17,
+          "x": 640.17,
+          "y": 0.00,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Traffic and Pollution by Zones",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "b07a2df590037db0a8bc",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"4638c804458a6260485e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640.1743394170526,\"y\":0,\"z\":4,\"width\":640.1743394170526,\"height\":222.1781530918006,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Series\":[{\"queryRef\":\"DimZone.borough\"}],\"Category\":[{\"queryRef\":\"DimDate.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"FactZoneMeasurementsDaily.Avg NO2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"DimZone\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactZoneMeasurementsDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"borough\"},\"Name\":\"DimZone.borough\",\"NativeReferenceName\":\"borough\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"DimDate.date\",\"NativeReferenceName\":\"date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg NO2\"},\"Name\":\"FactZoneMeasurementsDaily.Avg NO2\",\"NativeReferenceName\":\"Avg NO2\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"1e557b4e85d064b71b01\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDate\"}},\"Property\":\"date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 222.18,
+          "width": 640.17,
+          "x": 640.17,
+          "y": 0.00,
+          "z": 4.00
+        },
+        {
+          "config": "{\"name\":\"7157bfa179554a900dc5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640.1743394170526,\"y\":498.33178970307813,\"z\":6,\"width\":640.1743394170526,\"height\":222.1781530918006,\"tabOrder\":6}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Series\":[{\"queryRef\":\"DimZone.borough\"}],\"Category\":[{\"queryRef\":\"DimDate.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"FactZoneMeasurementsDaily.Avg NO2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"DimZone\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactZoneMeasurementsDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"borough\"},\"Name\":\"DimZone.borough\",\"NativeReferenceName\":\"borough\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"DimDate.date\",\"NativeReferenceName\":\"date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg NO2\"},\"Name\":\"FactZoneMeasurementsDaily.Avg NO2\",\"NativeReferenceName\":\"Avg NO2\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 222.18,
+          "width": 640.17,
+          "x": 640.17,
+          "y": 498.33,
+          "z": 6.00
+        },
+        {
+          "config": "{\"name\":\"a2e25cb6a9030a81e64c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":5,\"width\":640.1743394170526,\"height\":222.1781530918006,\"tabOrder\":5}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Series\":[{\"queryRef\":\"DimZone.borough\"}],\"Category\":[{\"queryRef\":\"DimDate.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"FactZoneMeasurementsDaily.Avg NO2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"DimZone\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactZoneMeasurementsDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"borough\"},\"Name\":\"DimZone.borough\",\"NativeReferenceName\":\"borough\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"DimDate.date\",\"NativeReferenceName\":\"date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg NO2\"},\"Name\":\"FactZoneMeasurementsDaily.Avg NO2\",\"NativeReferenceName\":\"Avg NO2\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 222.18,
+          "width": 640.17,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 5.00
+        },
+        {
+          "config": "{\"name\":\"a804424e41ce87e063e0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":498.33178970307813,\"z\":2,\"width\":640.1743394170526,\"height\":222.1781530918006,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Series\":[{\"queryRef\":\"DimZone.borough\"}],\"Category\":[{\"queryRef\":\"DimDate.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"FactZoneMeasurementsDaily.Avg NO2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"DimZone\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactZoneMeasurementsDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"borough\"},\"Name\":\"DimZone.borough\",\"NativeReferenceName\":\"borough\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"DimDate.date\",\"NativeReferenceName\":\"date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg NO2\"},\"Name\":\"FactZoneMeasurementsDaily.Avg NO2\",\"NativeReferenceName\":\"Avg NO2\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 222.18,
+          "width": 640.17,
+          "x": 0.00,
+          "y": 498.33,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"adb2413fcd03cab3477a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":198.32852083900843,\"z\":1,\"width\":1280.3486788341052,\"height\":300.0032688640697,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Series\":[{\"queryRef\":\"DimZone.borough\"}],\"Y\":[{\"queryRef\":\"FactTaxiDaily.Avg Trips per Day\"}],\"Category\":[{\"queryRef\":\"DimDate.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"DimZone\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"borough\"},\"Name\":\"DimZone.borough\",\"NativeReferenceName\":\"borough\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg Trips per Day\"},\"Name\":\"FactTaxiDaily.Avg Trips per Day\",\"NativeReferenceName\":\"Avg Trips per Day\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"DimDate.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"98828a8d21e35bb94a70\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDate\"}},\"Property\":\"date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 300.00,
+          "width": 1280.35,
+          "x": 0.00,
+          "y": 198.33,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

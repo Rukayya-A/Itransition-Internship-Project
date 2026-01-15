@@ -4,6 +4,6 @@ CREATE TABLE [gold].[DimFX] (
 	[currency] varchar(10) NOT NULL, 
 	[currency_denom] varchar(10) NOT NULL, 
 	[time_period] date NOT NULL, 
-	[obs_value] float NOT NULL, 
+	[eur_to_usd] float NOT NULL, 
 	[date_key] bigint NULL
 );

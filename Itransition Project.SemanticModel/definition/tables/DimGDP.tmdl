@@ -7,7 +7,7 @@ table DimGDP
 		formatString: 0
 		lineageTag: 01e22ac5-0008-4037-a35a-982c5d18c4ee
 		sourceLineageTag: gdp_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: gdp_key
 
 		annotation SummarizationSetBy = Automatic
@@ -44,7 +44,7 @@ table DimGDP
 		formatString: 0
 		lineageTag: a5a46cd9-f7b7-4fb9-ab2d-5f8e8b280057
 		sourceLineageTag: year
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: year
 
 		annotation SummarizationSetBy = Automatic
@@ -53,7 +53,7 @@ table DimGDP
 		dataType: double
 		lineageTag: 7a235dd3-1591-47ab-b3d8-ef22fe43c378
 		sourceLineageTag: gdp_usd
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: gdp_usd
 
 		annotation SummarizationSetBy = Automatic
